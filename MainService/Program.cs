@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Topshelf;
 
 namespace MainService
@@ -7,7 +8,7 @@ namespace MainService
     {
         static void Main(string[] args)
         {
-            var ec = HostFactory.Run(x => 
+            var ec = HostFactory.Run(x =>
             {
                 x.Service<Keeper>(s =>
                 {
@@ -19,7 +20,7 @@ namespace MainService
                 x.RunAsLocalSystem();
 
                 x.SetServiceName("DownloadKeeper");
-                x.SetDisplayName("Download Keeper Service");
+                x.SetDisplayName("DownloadKeeper Service");
                 x.SetDescription("This service will delete the old downloaded files from your default windows download folder.");
             });
 
